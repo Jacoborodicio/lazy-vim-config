@@ -20,6 +20,14 @@ return {
     },
   },
 
+  {
+    "numToStr/Comment.nvim",
+    opts = {
+      -- add any options here
+    },
+    lazy = false,
+  },
+
   -- change trouble config
   {
     "folke/trouble.nvim",
