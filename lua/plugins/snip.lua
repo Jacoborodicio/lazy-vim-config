@@ -15,15 +15,22 @@ return {
     local i = ls.insert_node
     local f = ls.function_node
     local fmt = require("luasnip.extras.fmt").fmt
+    local rep = require("luasnip.extras").rep
 
     -- snippets
     local snips = {
       javascript = {
-        s({ trig = "cls", name = "demo" }, fmt("console.log('%c{}', 'color:orange');", { i(1, "default_value") })),
-
+        s(
+          { trig = "cl", name = "demo" },
+          fmt("console.log('%c 🚀🚀 {} 🚀🚀','color:orange');", { i(1, "here") })
+        ),
+        s(
+          { trig = "cls", name = "demo" },
+          fmt("console.log('%c 🔰 {} 🔰:', {}, 'color:orange');", { rep(1), i(1, "default_value") })
+        ),
         s(
           { trig = "clg", name = "console group" },
-          fmt("console.group('{}')\n{}\nconsole.groupEnd();", { i(1, "name"), i(2, "body") })
+          fmt("console.group('🔻🔻 {} 🔻🔻')\n\t{}\nconsole.groupEnd();", { i(1, "name"), i(0) })
         ),
       },
       go = {
@@ -31,10 +38,10 @@ return {
           { trig = "err", name = "error check" },
           fmt(
             [[
-      		if {} != nil {{
-      			{}
-      		}}
-      		]],
+                if {} != nil {{
+                  {}
+                }}
+                ]],
             { i(1, "err"), i(2, "body") }
           )
         ),
@@ -44,9 +51,9 @@ return {
           { trig = "pcall", name = "protected call" },
           fmt(
             [[
-      		local ok, {} = pcall(require, '{}')
-      		if not ok then return end
-      		]],
+                local ok, {} = pcall(require, '{}')
+                if not ok then return end
+                ]],
             { i(1, "name"), i(2, "module") }
           )
         ),
@@ -55,15 +62,15 @@ return {
           { trig = "aucmd", name = "create lua autocommand" },
           fmt(
             [[
-      		local {} = vim.api.nvim_create_augroup("{}", {{}})
-      		vim.api.nvim_clear_autocmds({{ group = {} }})
-      		vim.api.nvim_create_autocmd("{}", {{
-      			group = {},
-      			callback = function()
-      				{}
-      			end,
-      		}})
-      		]],
+                local {} = vim.api.nvim_create_augroup("{}", {{}})
+                vim.api.nvim_clear_autocmds({{ group = {} }})
+                vim.api.nvim_create_autocmd("{}", {{
+                  group = {},
+                  callback = function()
+                    {}
+                  end,
+                }})
+                ]],
             {
               i(1, "name"),
               i(2, "augroup_name"),
@@ -82,36 +89,11 @@ return {
           { trig = "lf", name = "local function" },
           fmt(
             [[
-      		local function {}({})
-      			{}
-      		end
-      		]],
+                local function {}({})
+                  {}
+                end
+                ]],
             { i(1, "name"), i(2, "args"), i(0) }
-          )
-        ),
-        s(
-          { trig = "mod", name = "local module M" },
-          fmt(
-            [[
-      		local M = {{}}
-
-      		{}
-
-      		return M
-      		]],
-            i(0)
-          )
-        ),
-        s(
-          { trig = "plug", name = "new plugin" },
-          fmt(
-            [[
-      		{{
-      			"{}",
-      			opts = {},
-      		}},
-      		]],
-            { i(1, "plugin"), i(2, "opts") }
           )
         ),
       },
