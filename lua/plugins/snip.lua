@@ -19,18 +19,46 @@ return {
 
     -- snippets
     local snips = {
-      javascript = {
+      all = {
         s(
-          { trig = "cl", name = "demo" },
+          { trig = "cl", name = "log", priority = 9999 },
           fmt("console.log('%c 🚀🚀 {} 🚀🚀','color:orange');", { i(1, "here") })
         ),
         s(
-          { trig = "cls", name = "demo" },
-          fmt("console.log('%c 🔰 {} 🔰:', {}, 'color:orange');", { rep(1), i(1, "default_value") })
+          { trig = "cls", name = "log with variable", priority = 9999 },
+          fmt("console.log('%c 🔰 {} 🔰:', 'color:orange', {});", { rep(1), i(1, "default_value") })
         ),
         s(
-          { trig = "clg", name = "console group" },
+          { trig = "clg", name = "log grouping", priority = 9999 },
           fmt("console.group('🔻🔻 {} 🔻🔻')\n\t{}\nconsole.groupEnd();", { i(1, "name"), i(0) })
+        ),
+        s(
+          { trig = "clt", name = "performance timing", priority = 9999 },
+          fmt(
+            "console.time('🔻🔻 {} 🔻🔻')\n\nconsole.timeEnd('🔻🔻 {} 🔻🔻');",
+            { i(1, "functionName"), rep(1) }
+          )
+        ),
+      },
+      javascript = {
+        s(
+          { trig = "cl", name = "log", priority = 9999 },
+          fmt("console.log('%c 🚀🚀 {} 🚀🚀','color:orange');", { i(1, "here") })
+        ),
+        s(
+          { trig = "cls", name = "log with variable", priority = 9999 },
+          fmt("console.log('%c 🔰 {} 🔰:', 'color:orange', {});", { rep(1), i(1, "default_value") })
+        ),
+        s(
+          { trig = "clg", name = "log grouping", priority = 9999 },
+          fmt("console.group('🔻🔻 {} 🔻🔻')\n\t{}\nconsole.groupEnd();", { i(1, "name"), i(0) })
+        ),
+        s(
+          { trig = "clt", name = "performance timing", priority = 9999 },
+          fmt(
+            "console.time('🔻🔻 {} 🔻🔻')\n\nconsole.timeEnd('🔻🔻 {} 🔻🔻');",
+            { i(1, "functionName"), rep(1) }
+          )
         ),
       },
       go = {

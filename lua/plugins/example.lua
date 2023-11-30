@@ -123,6 +123,7 @@ return {
       ---@type lspconfig.options
       servers = {
         -- tsserver will be automatically installed with mason and loaded with lspconfig
+        gopls = {},
         tsserver = {},
       },
       -- you can do any additional lsp server setup here
@@ -153,6 +154,7 @@ return {
         "html",
         "javascript",
         "json",
+        "go",
         "lua",
         "markdown",
         "markdown_inline",
@@ -216,6 +218,7 @@ return {
         "shellcheck",
         "shfmt",
         "flake8",
+        "gopls",
       },
     },
   },
