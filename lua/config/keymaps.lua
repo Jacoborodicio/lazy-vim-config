@@ -19,8 +19,8 @@ local keymap = vim.api.nvim_set_keymap
 -- Centering the view after jumps
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
-keymap("n", "<C-u>", "<C-u>zz", opts)
-keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "17<C-u>zz", opts)
+keymap("n", "<C-d>", "-17<C-d>zz", opts)
 
 -- INSERT --
 -- Press jk or JK fast to escape
