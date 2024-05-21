@@ -76,6 +76,23 @@ return {
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
         winblend = 0,
+        mappings = {
+          i = {
+            ["<esc>"] = require("telescope.actions").close,
+            -- ["C-j"] = require("telescope.actions").cycle_history_next(),
+            -- ["C-k"] = require("telescope.actions").cycle_history_prev(),
+          },
+        },
+      },
+      setup = {
+        extensions = {
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+          },
+        },
       },
     },
   },
