@@ -6,16 +6,16 @@ return {
     config = function()
       require("copilot").setup({
         suggestion = {
-          enabled = true, -- Esto activa las sugerencias inline
-          auto_trigger = true, -- Activa las sugerencias automáticamente
+          enabled = true,
+          auto_trigger = true,
           keymap = {
-            accept = "<Tab>", -- Acepta sugerencias inline con Enter
-            next = "<C-]>",
-            prev = "<C-[>",
+            accept = "<Tab>",
+            next = "<C-Down>",
+            prev = "<C-Up>",
             dismiss = "<C-\\>",
           },
         },
-        panel = { enabled = false }, -- Puedes habilitar el panel flotante si lo deseas
+        panel = { enabled = false },
       })
     end,
   },
