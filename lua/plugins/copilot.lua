@@ -9,7 +9,7 @@ return {
           enabled = true, -- Esto activa las sugerencias inline
           auto_trigger = true, -- Activa las sugerencias automáticamente
           keymap = {
-            accept = "<Enter>", -- Acepta sugerencias inline con Enter
+            accept = "<Tab>", -- Acepta sugerencias inline con Enter
             next = "<C-]>",
             prev = "<C-[>",
             dismiss = "<C-\\>",
