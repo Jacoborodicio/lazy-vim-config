@@ -31,8 +31,8 @@ keymap("i", "JK", "<ESC>", opts)
 -- Paste without overwriting the current register
 keymap("v", "p", "pgvy", opts)
 
--- TERMINAL --
--- Pres Command + j to next-history
-keymap("t", "<C-j>", "<Down>", opts)
--- Pres Command + k to previous-history
-keymap("t", "<C-k>", "<Up>", opts)
+-- -- TERMINAL --
+-- -- Pres Control + j to next-history
+-- keymap("t", "<C-j>", "<Down>", opts)
+-- -- Pres Command + k to previous-history
+-- keymap("t", "<C-k>", "<Up>", opts)
