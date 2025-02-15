@@ -78,8 +78,8 @@ return {
 
       -- Define un snippet básico para TODOS los archivos
       ls.add_snippets("all", {
-        s("cl", fmt("console.log('🚀 {} 🚀', 'color:orange');", { i(1, "here") })),
-        s("cls", fmt("console.log('%c 🔰 {} 🔰:', 'color:orange', {});", { rep(1), i(1, "default_value") })),
+        s("cl", fmt("console.log('%c 🚀 {} 🚀', 'color:coral');", { i(1, "here") })),
+        s("cls", fmt("console.log('%c 🔰 {} 🔰:', 'color:lightblue', {});", { rep(1), i(1, "default_value") })),
         s("clg", fmt("console.group('🔻🔻 {} 🔻🔻')\n\t{}\nconsole.groupEnd();", { i(1, "name"), i(0) })),
         s(
           "clt",
@@ -109,11 +109,20 @@ return {
       })
 
       -- Atajos básicos para expandir y navegar por los snippets
+      vim.keymap.set({ "i", "s" }, "<CR>", function()
+        if ls.jumpable(1) then
+          ls.jump(1)
+        else
+          return "<CR>"
+        end
+      end, { expr = true, silent = true })
+
       vim.keymap.set({ "i", "s" }, "<C-K>", function()
         if ls.expand_or_jumpable() then
           ls.expand_or_jump()
         end
       end, { silent = true })
+
       vim.keymap.set({ "i", "s" }, "<C-J>", function()
         if ls.jumpable(-1) then
           ls.jump(-1)
